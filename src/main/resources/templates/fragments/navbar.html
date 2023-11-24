@@ -1,0 +1,89 @@
+<nav class="navbar navbar-dark bg-dark">
+
+    <div class="container-fluid">   
+        <a class="navbar-brand" href="/inicio">Libreria del Deivid</a>
+
+        <li class="nav-item dropdown">      <!-- Aca indicamos que si hay sesion activa que se muestre el boton-->
+            <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                Libro</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li sec:authorize="hasRole('ADMIN')" ><a class="dropdown-item" href="/libro/registrar">Cargar libro</a></li>
+                <li><a class="dropdown-item" href="/libro/lista">Listar Libro</a></li>
+
+            </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Autor
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" href="/autor/registrar"> Cargar Autor</a></li>
+                <li><a class="dropdown-item" href="/autor/lista">Listar Autor</a></li>
+
+            </ul>
+        </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Editorial
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li sec:authorize="hasRole('ADMIN')" ><a class="dropdown-item" href="/editorial/registrar">Cargar editorial</a></li>
+                <li><a class="dropdown-item" href="/editorial/lista">Listar Editorial</a></li>
+
+            </ul>
+        </li>
+
+
+
+
+       
+     
+        
+
+         <li class="nav-item dropdown">      <!-- Aca indicamos que si no hay sesion activa se muestre el boton-->
+            <a class="nav-link active" th:if="${session.usuariosession == null}" href="/login" id="navbarDropdown" >
+                Iniciar sesion
+            </a>
+            
+        </li>
+         <li class="nav-item dropdown">
+            <a class="nav-link active" th:if="${session.usuariosession == null}" href="/registrar" id="navbarDropdown">
+                Registrar
+            </a>
+           
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Perfil
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/logout">Cerrar sesion</a></li>
+
+            </ul>
+        </li>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link"> Has sido RickRoleado</a>
+                <div class="container">
+                    <div  class="content-center">
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=5DhI6NsP6U9wZZlQ" 
+                                title="Has sido RickRoleado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+</nav>
